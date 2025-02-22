@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
+import SearchResult from "./../../products/components/SearchResults.jsx";
 import Home from "./Home";
 
 const Body = () => {
@@ -7,6 +8,7 @@ const Body = () => {
     <div className="container-fluid">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products/result" element={<SearchResult />} />
       </Routes>
     </div>
   );

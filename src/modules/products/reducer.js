@@ -3,21 +3,21 @@ import { combineReducers } from "redux";
 import * as actionTypes from "./actionTypes";
 
 const initialState = {
-  productSearch: null,
+  productsSearch: null,
 };
 
-const productSearch = (state = initialState.productSearch, action) => {
+const productsSearch = (state = initialState.productsSearch, action) => {
   if (action.type === actionTypes.FIND_PRODUCTS_COMPLETED) {
-    return action.productSearch;
+    return action.productsSearch;
   } else if (action.type === actionTypes.CLEAR_PRODUCTS_SEARCH) {
-    return initialState.productSearch;
+    return initialState.productsSearch;
   } else {
     return state;
   }
 };
 
 const reducer = combineReducers({
-  productSearch,
+  productsSearch,
 });
 
 export default reducer;

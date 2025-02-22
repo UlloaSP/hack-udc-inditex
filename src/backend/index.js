@@ -1,5 +1,5 @@
-import { init, searchProducts, trackOrder, visualSearch } from "./appFetch";
+import { findImages, findProducts, init } from "./appFetch";
 
 export { default as NetworkError } from "./NetworkError";
 
-export default { init, searchProducts, visualSearch, trackOrder };
+export default { init, findProducts, findImages };
