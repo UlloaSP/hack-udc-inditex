@@ -34,7 +34,7 @@ const Home = () => {
         autoPlay
         muted
         loop
-        className="video-background"
+        className="video-background v"
       >
         <source src="/assets/media/video/gift-ropa.mp4" type="video/mp4" />
         Your browser does not support the video tag.

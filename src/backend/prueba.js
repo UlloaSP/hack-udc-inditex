@@ -77,7 +77,6 @@ app.post("/authenticate", async (req, res) => {
 const withAuth = (req, res, next) => {
   console.log("🔍 Token en sesión:", req.session.serviceToken);
   console.log("🔍 Headers actuales:", req.headers);
-
   if (!req.session.serviceToken) {
     return res
       .status(401)
@@ -98,6 +97,7 @@ app.get("/products", withAuth, async (req, res) => {
       page: page.toString(),
       perPage: perPage.toString(),
     });
+    console.log(params);
 
     const response = await fetch(`${PRODUCT_SEARCH_URL}?${params}`, {
       method: "GET",
@@ -107,6 +107,7 @@ app.get("/products", withAuth, async (req, res) => {
     });
 
     const data = await response.json();
+    console.log(data);
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });

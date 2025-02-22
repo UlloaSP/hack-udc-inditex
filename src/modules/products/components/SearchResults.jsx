@@ -5,6 +5,8 @@ import * as selectors from "../selectors";
 const FindproductsResult = () => {
   const productSearch = useSelector(selectors.getProductsSearch);
 
+  console.log(productSearch);
+
   if (!productSearch) {
     return null;
   }
