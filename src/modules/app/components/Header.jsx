@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container-fluid">
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
-            src="./assets/itx.png"
+            src="./assets//media/img/itx.png"
             className="navbar-logo me-2"
             alt="HackUDC - Inditex logo"
             height="100"
