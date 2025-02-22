@@ -3,6 +3,12 @@ body {
   background-color: #000000;
 }
 
+html, body {
+  overflow-x: hidden;  /* 🔹 Evita el scroll horizontal */
+  width: 100vw;  /* 🔹 Asegura que la página no sobrepase el ancho */
+}
+
+
 .assign-correct {
   display: flex;
   flex-direction: column;

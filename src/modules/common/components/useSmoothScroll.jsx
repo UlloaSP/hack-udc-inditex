@@ -1,49 +1,37 @@
-import { useEffect, useRef } from "react";
+// @ts-check
+import { useEffect, useRef } from "react"; 
+import { motion } from "framer-motion";
 
-const useSmoothScroll = () => {
+const useSmoothScroll = (numSections) => {
   const currentSectionRef = useRef(0);
   const isScrollingRef = useRef(false);
-  const sections = useRef([]);
 
   useEffect(() => {
-    sections.current = document.querySelectorAll(".assign-section");
-
     const scrollToSection = (index) => {
-      if (isScrollingRef.current) return; // Evita múltiples desplazamientos rápidos
-      if (index < 0 || index >= sections.current.length) return; // Evita valores fuera de rango
+      if (isScrollingRef.current) return; // Bloquea múltiples desplazamientos
+      if (index < 0 || index >= numSections) return;
 
-      isScrollingRef.current = true;
-      sections.current[index].scrollIntoView({ behavior: "smooth" });
+      isScrollingRef.current = true; // Bloquea el scroll mientras se anima
+
+      window.scrollTo({
+        top: index * window.innerHeight,
+        behavior: "smooth",
+      });
 
       setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 1000); // Duración del scroll antes de permitir otro evento
+        isScrollingRef.current = false; // Desbloquea el scroll después de 1.5s
+      }, 1500); 
     };
 
     const handleScroll = (event) => {
-      event.preventDefault();
       if (isScrollingRef.current) return;
 
       let newIndex = currentSectionRef.current;
 
-      if (
-        event.deltaY > 0 ||
-        event.key === "ArrowDown" ||
-        event.key === "PageDown" ||
-        event.key === " "
-      ) {
-        // Scroll hacia abajo
-        newIndex = Math.min(
-          currentSectionRef.current + 1,
-          sections.current.length - 1
-        );
-      } else if (
-        event.deltaY < 0 ||
-        event.key === "ArrowUp" ||
-        event.key === "PageUp"
-      ) {
-        // Scroll hacia arriba
-        newIndex = Math.max(currentSectionRef.current - 1, 0);
+      if (event.deltaY > 0 || event.key === "ArrowDown") {
+        newIndex = Math.min(newIndex + 1, numSections - 1);
+      } else if (event.deltaY < 0 || event.key === "ArrowUp") {
+        newIndex = Math.max(newIndex - 1, 0);
       }
 
       if (newIndex !== currentSectionRef.current) {
@@ -59,9 +47,31 @@ const useSmoothScroll = () => {
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("keydown", handleScroll);
     };
-  }, []);
+  }, [numSections]);
 
   return null;
 };
 
-export default useSmoothScroll;
+const ScrollPage = () => {
+  const sections = ["Sección 1", "Sección 2", "Sección 3", "Sección 4"];
+
+  useSmoothScroll(sections.length);
+
+  return (
+    <div>
+      {sections.map((text, index) => (
+        <motion.div
+          key={index}
+          className="h-screen flex items-center justify-center text-3xl font-bold"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {text}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+export default ScrollPage;

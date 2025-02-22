@@ -17,7 +17,7 @@ const Header = () => {
             textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)",
           }}
         >
-          HACK
+          Encuentra la prenda que buscas de una forma rápida y sencilla
         </h1>
       </Carousel>
     </div>
