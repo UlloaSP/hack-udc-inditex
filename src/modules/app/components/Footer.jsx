@@ -1,7 +1,7 @@
 import { FormattedMessage } from "react-intl";
 
 const Footer = () => (
-  <div className=" assign-section">
+  <div className="footer assign-section">
     <br />
     <hr />
     <footer>

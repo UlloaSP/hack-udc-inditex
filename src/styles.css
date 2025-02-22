@@ -164,3 +164,7 @@ html, body {
 .inditex-search-button:hover {
   background-color: #333333;
 }
+
+.footer {
+  background-color: #ffffff;
+}

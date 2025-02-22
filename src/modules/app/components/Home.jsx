@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { UploadButton } from "../../common";
+import { Carousel, UploadButton } from "../../common";
 import { SearchBar } from "../../products";
 import { findProducts } from "./../../products/actions";
 
@@ -32,14 +32,28 @@ const Home = () => {
 
   return (
     <div className="home assign-section">
-      <SearchBar
-        placeholder="Search something..."
-        value={searchQuery}
-        onChange={handleSearchChange}
-        onSubmit={handleSearchSubmit}
-      />
-      <div className="separator"></div> {/* En lugar de dos <hr> */}
-      <UploadButton />
+      <Carousel folderPath="/assets/media/img/slides" imageCount={3}>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "white",
+            fontSize: "4rem",
+            textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          <SearchBar
+            placeholder="Search something..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            onSubmit={handleSearchSubmit}
+          />
+          <div className="separator"></div>
+          <UploadButton />
+        </div>
+      </Carousel>
     </div>
   );
 };

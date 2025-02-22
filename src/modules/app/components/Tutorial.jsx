@@ -4,7 +4,10 @@ const Tutorial = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [text, setText] = useState("");
   const textSteps = [
-    "Encuentra los artículos que buscas en un clic o con una simple foto. Nuestro buscador te ayudará a descubrir las mejores opciones para que siempre estés a la última. Escribe una breve descripción del producto que tienes en mente y te mostraremos artículos similares disponibles en nuestras tiendas. ¿Prefieres una búsqueda más visual? Sube una imagen y deja que nuestro sistema encuentre lo que buscas al instante."
+    "Encuentra los artículos que buscas en un clic o con una simple foto." +
+      "Nuestro buscador te ayudará a descubrir las mejores opciones para que siempre estés a la última." +
+      "Escribe una breve descripción del producto que tienes en mente y te mostraremos artículos similares disponibles en nuestras tiendas." +
+      "¿Prefieres una búsqueda más visual? Sube una imagen y deja que nuestro sistema encuentre lo que buscas al instante.",
   ];
 
   useEffect(() => {
@@ -12,7 +15,7 @@ const Tutorial = () => {
     if (!video) return;
 
     const timeMarkers = [0, 5, 10, 15];
-    
+
     const updateText = () => {
       for (let i = 0; i < timeMarkers.length; i++) {
         if (video.currentTime >= timeMarkers[i] && textIndex !== i) {
