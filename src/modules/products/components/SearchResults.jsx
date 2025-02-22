@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import * as selectors from "../selectors";
 
 const FindproductsResult = () => {
-  const productSearch = useSelector(selectors.getproductsSearch);
+  const productSearch = useSelector(selectors.getProductsSearch);
 
   if (!productSearch) {
     return null;
