@@ -11,6 +11,8 @@ class NetworkError extends Error {
 const SERVICE_TOKEN_NAME = "serviceToken";
 const BASE_URL = import.meta.env.VITE_INDITEX_API_URL; // URL de la API de Inditex (e.g. https://api.inditex.com)
 const AUTH_URL = import.meta.env.VITE_INDITEX_AUTH_URL; // URL de autenticación (e.g. https://auth.inditex.com:443/openam/oauth2/itxid/itxidmp/sandbox/access_token)
+//const axios = require('axios');
+//const qs = require('qs');
 
 let networkErrorCallback;
 let reauthenticationCallback;
@@ -64,30 +66,23 @@ const handleResponse = (response, onSuccess, onErrors) => {
 export const authenticate = async () => {
   const clientId = import.meta.env.VITE_INDITEX_CLIENT_ID; // Definido en las variables de entorno
   const clientSecret = import.meta.env.VITE_INDITEX_CLIENT_SECRET; // Definido en las variables de entorno
-  const tokenUrl = AUTH_URL; // URL de autenticación
-
-  const params = JSON.stringify({
-    grant_type: "client_credentials",
-    client_id: clientId,
-    client_secret: clientSecret,
-  });
+  const scope = import.meta.env.VITE_INDITEX_API_SCOPE
+  
   try {
     const response = await fetch(tokenUrl, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Access-Control-Allow-Origin": "*",
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': `Auth 2, client_id:${clientId}, client_secret:${clientSecret}`
       },
-      body: params,
-    });
-    if (!response.ok) {
-      throw new Error(
-        `Error en la solicitud de autenticación: ${response.status}`
-      );
-    }
-    const data = await response.json();
-    setServiceToken(data.access_token);
-    return data.access_token;
+      body: new URLSearchParams({
+          grant_type: 'client_credentials',
+          scope: scope
+      })
+  });
+  const data = await response.json();
+  console.log('Access Token:', data.access_token);
+  return data.access_token;
   } catch (error) {
     if (networkErrorCallback) networkErrorCallback(error);
     throw error;
