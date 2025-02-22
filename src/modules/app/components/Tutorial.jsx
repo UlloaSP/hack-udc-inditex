@@ -3,11 +3,6 @@ import { useEffect, useState } from "react";
 const Tutorial = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [text, setText] = useState("");
-  const textSteps =
-    "Encuentra los artículos que buscas en un clic o con una simple foto." +
-    "Nuestro buscador te ayudará a descubrir las mejores opciones para que siempre estés a la última." +
-    "Escribe una breve descripción del producto que tienes en mente y te mostraremos artículos similares disponibles en nuestras tiendas." +
-    "¿Prefieres una búsqueda más visual? Sube una imagen y deja que nuestro sistema encuentre lo que buscas al instante.";
 
   useEffect(() => {
     const video = document.getElementById("tutorial-video");
@@ -26,7 +21,9 @@ const Tutorial = () => {
 
       {/* Sección de texto con efecto mecanografía */}
       <div className="tutorial-text">
-        <h1>{text}</h1>
+        <h1>Encuentra los artículos que buscas en un clic o con una simple foto. Nuestro buscador te ayudará a descubrir las mejores opciones para que siempre estés a la última.
+          Escribe una breve descripción del producto que tienes en mente y te mostraremos artículos similares disponibles en nuestras tiendas. ¿Prefieres una búsqueda más visual? Sube una imagen y deja que nuestro sistema encuentre lo que buscas al instante.
+        </h1>
       </div>
     </div>
   );

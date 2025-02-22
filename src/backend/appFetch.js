@@ -73,7 +73,7 @@ export const authenticate = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `OAuth 2, client_id:${clientId}, client_secret:${clientSecret}`,
+        Authorization: `OAuth 2, client_id:${clientId}, client_secret:${clientSecret}`
       },
       body: new URLSearchParams({
         grant_type: "client_credentials",
@@ -135,10 +135,9 @@ export const searchProducts = (
   onSuccess,
   onErrors
 ) => {
-  const params = new URLSearchParams({ query, page, perPage });
-  if (brand) params.append("brand", brand);
+  const params = new URLSearchParams(query, page, perPage, brand);
 
-  fetch(`${BASE_URL}/products?${params.toString()}`, config("GET"))
+  fetch(`${BASE_URL}/products?${params}`, config("GET"))
     .then((response) => handleResponse(response, onSuccess, onErrors))
     .catch(networkErrorCallback);
 };

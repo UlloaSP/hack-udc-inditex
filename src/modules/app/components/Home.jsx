@@ -24,7 +24,7 @@ const Home = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    dispatch(findProducts({ query: searchQuery }));
+    dispatch(findProducts(searchQuery ));
   };
 
   return (
