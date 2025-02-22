@@ -1,12 +1,9 @@
 import { FormattedMessage } from "react-intl";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import * as selectors from "../selectors";
 
 const FindproductsResult = () => {
   const productSearch = useSelector(selectors.getproductsSearch);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   if (!productSearch) {
     return null;
@@ -14,8 +11,11 @@ const FindproductsResult = () => {
 
   if (productSearch.result.items.length === 0) {
     return (
-      <div className="alert alert-danger" role="alert">
-        <FormattedMessage id="project.products.FindproductsResult.noproductsFound" />
+      <div className="home assign-section">
+        <h1>manolito</h1>
+        <div className="alert alert-danger" role="alert">
+          <FormattedMessage id="project.products.FindproductsResult.noproductsFound" />
+        </div>
       </div>
     );
   }

@@ -1,3 +1,4 @@
 const getModuleState = (state) => state.products;
 
-export const getProductSearch = (state) => getModuleState(state).productSearch;
+export const getProductsSearch = (state) =>
+  getModuleState(state).productsSearch;
