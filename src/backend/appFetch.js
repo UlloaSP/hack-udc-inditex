@@ -74,6 +74,7 @@ export const authenticate = async () => {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `OAuth 2, client_id:${clientId}, client_secret:${clientSecret}`,
+        "User-Agent": "PostmanRuntime/7.26.8",
       },
       body: new URLSearchParams({
         grant_type: "client_credentials",
@@ -114,7 +115,10 @@ export const config = (method, body) => {
     if (body instanceof FormData) {
       config.body = body;
     } else {
-      config.headers = { "Content-Type": "application/json" };
+      config.headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "PostmanRuntime/7.26.8",
+      };
       config.body = JSON.stringify(body);
     }
   }
@@ -135,10 +139,9 @@ export const searchProducts = (
   onSuccess,
   onErrors
 ) => {
-  const params = new URLSearchParams({ query, page, perPage });
-  if (brand) params.append("brand", brand);
+  const params = new URLSearchParams(query, page, perPage, brand);
 
-  fetch(`${BASE_URL}/products?${params.toString()}`, config("GET"))
+  fetch(`${BASE_URL}/products?${params}`, config("GET"))
     .then((response) => handleResponse(response, onSuccess, onErrors))
     .catch(networkErrorCallback);
 };
@@ -151,9 +154,9 @@ export const visualSearch = (
   onSuccess,
   onErrors
 ) => {
-  const params = new URLSearchParams({ image: imageUrl, page, perPage });
+  const params = new URLSearchParams(imageUrl, page, perPage);
 
-  fetch(`${BASE_URL}/visual-search?${params.toString()}`, config("GET"))
+  fetch(`${BASE_URL}/visual-search?${params}`, config("GET"))
     .then((response) => handleResponse(response, onSuccess, onErrors))
     .catch(networkErrorCallback);
 };
