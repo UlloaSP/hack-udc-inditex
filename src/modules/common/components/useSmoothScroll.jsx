@@ -1,6 +1,6 @@
 // @ts-check
-import { useEffect, useRef } from "react"; 
 import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 
 const useSmoothScroll = (numSections) => {
   const currentSectionRef = useRef(0);
@@ -20,7 +20,7 @@ const useSmoothScroll = (numSections) => {
 
       setTimeout(() => {
         isScrollingRef.current = false; // Desbloquea el scroll después de 1.5s
-      }, 1500); 
+      }, 1500);
     };
 
     const handleScroll = (event) => {
@@ -59,17 +59,11 @@ const ScrollPage = () => {
 
   return (
     <div>
-      {sections.map((text, index) => (
-        <motion.div
-          key={index}
-          className="h-screen flex items-center justify-center text-3xl font-bold"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {text}
-        </motion.div>
-      ))}
+      <motion.section className="section">
+        {sections.map((text, index) => (
+          <div key={index}>{text}</div>
+        ))}
+      </motion.section>
     </div>
   );
 };

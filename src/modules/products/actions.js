@@ -12,7 +12,7 @@ const clearProductsSearch = () => ({
 
 export const findProducts = (criteria) => (dispatch) => {
   dispatch(clearProductsSearch());
-  backend.appFetch.searchProducts(criteria, (result) =>
+  backend.searchProducts(criteria, (result) =>
     dispatch(findProductsCompleted({ criteria, result }))
   );
 };

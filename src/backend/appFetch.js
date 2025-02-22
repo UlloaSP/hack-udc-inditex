@@ -66,23 +66,23 @@ const handleResponse = (response, onSuccess, onErrors) => {
 export const authenticate = async () => {
   const clientId = import.meta.env.VITE_INDITEX_CLIENT_ID; // Definido en las variables de entorno
   const clientSecret = import.meta.env.VITE_INDITEX_CLIENT_SECRET; // Definido en las variables de entorno
-  const scope = import.meta.env.VITE_INDITEX_API_SCOPE
-  
+  const scope = import.meta.env.VITE_INDITEX_API_SCOPE;
+
   try {
     const response = await fetch(tokenUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': `Auth 2, client_id:${clientId}, client_secret:${clientSecret}`
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `OAuth 2, client_id:${clientId}, client_secret:${clientSecret}`,
       },
       body: new URLSearchParams({
-          grant_type: 'client_credentials',
-          scope: scope
-      })
-  });
-  const data = await response.json();
-  console.log('Access Token:', data.access_token);
-  return data.access_token;
+        grant_type: "client_credentials",
+        scope: scope,
+      }),
+    });
+    const data = await response.json();
+    console.log("Access Token:", data.access_token);
+    return data.access_token;
   } catch (error) {
     if (networkErrorCallback) networkErrorCallback(error);
     throw error;
