@@ -66,18 +66,17 @@ export const authenticate = async () => {
   const clientSecret = import.meta.env.VITE_INDITEX_CLIENT_SECRET; // Definido en las variables de entorno
   const tokenUrl = AUTH_URL; // URL de autenticación
 
-  const params = new URLSearchParams();
-  params.append("grant_type", "client_credentials");
-
-  // Codifica las credenciales en Base64 para la cabecera Authorization
-  const credentials = btoa(`${clientId}:${clientSecret}`);
-
+  const params = JSON.stringify({
+    grant_type: "client_credentials",
+    client_id: clientId,
+    client_secret: clientSecret,
+  });
   try {
     const response = await fetch(tokenUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `Basic ${credentials}`,
+        "Access-Control-Allow-Origin": "*",
       },
       body: params,
     });

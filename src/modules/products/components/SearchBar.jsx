@@ -1,42 +1,42 @@
-import PropTypes from "prop-types";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import * as actions from "../actions";
 
-const SearchBar = ({ placeholder, value, onChange, onSubmit }) => {
+const SearchBar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(
+      actions.findProducts({
+        query: searchTerm,
+        page: 0,
+        perPage: 20,
+      })
+    );
+    navigate("/products/result");
+  };
+
   return (
-    <form
-      className="form-row mt-2 d-flex flex-column flex-md-row align-items-center justify-content-center"
-      onSubmit={onSubmit}
-    >
-      <div className="form-group mb-2 mb-md-0 me-md-2">
-        <input
-          id="searchInput"
-          type="text"
-          className="form-control"
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-        />
-      </div>
-
-      <button
-        id="searchSubmit"
-        type="submit"
-        className="btn btn-primary mt-2 mt-md-0"
-      >
-        Search
-      </button>
+    <form className="inditex-searchbar" onSubmit={handleSubmit}>
+      <input
+        id="searchInput"
+        type="text"
+        className="inditex-search-input"
+        placeholder="Buscar..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSubmit(e);
+          }
+        }}
+      />
     </form>
   );
-};
-
-SearchBar.propTypes = {
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};
-
-SearchBar.defaultProps = {
-  placeholder: "Search products...",
 };
 
 export default SearchBar;
