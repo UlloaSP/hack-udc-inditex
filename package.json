@@ -1,0 +1,36 @@
+{
+  "name": "hack-udc-inditex",
+  "version": "1.0.0",
+  "homepage": "/hack-udc-inditex",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@popperjs/core": "^2.11.8",
+    "@reduxjs/toolkit": "^2.5.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "bootstrap": "^5.3.3",
+    "hack-udc-inditex": "file:",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-intl": "^7.1.6",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.2.0",
+    "redux": "^5.0.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vite test"
+  },
+  "devDependencies": {
+    "vite": "^6.1.1"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}
