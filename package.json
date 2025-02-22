@@ -10,6 +10,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "bootstrap": "^5.3.3",
     "hack-udc-inditex": "file:",
+    "motion": "^12.4.7",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
