@@ -1,0 +1,192 @@
+body {
+  font-size: large;
+  background-color: #000000;
+}
+
+html, body {
+  overflow-x: hidden;  /* 🔹 Evita el scroll horizontal */
+  width: 100vw;  /* 🔹 Asegura que la página no sobrepase el ancho */
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 1.0rem;
+  color: #ffffff;
+}
+
+
+.assign-correct {
+  display: flex;
+  flex-direction: column;
+  height: 400dvh; /* Cuatro secciones de 100dvh */
+  width: 100vw;
+  overflow-y: hidden; /* Evita el scroll nativo */
+  scroll-snap-type: y mandatory;
+}
+
+.separator {
+  margin: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.assign-section {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+
+.tutorial-container {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-background {
+  filter: grayscale(100%);
+
+}
+
+.tutorial-text {
+  width: 50%;
+  padding: 20px;
+  white-space: wrap;
+  overflow: hidden;
+  border-right: 3px solid transparent;
+  line-height: 2em;
+  max-width: 40%;
+}
+
+.tutorial-video {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-video video {
+  width: 80%;
+  max-width: 800px;
+}
+
+.upload-button-container {
+  display: flex;
+  min-height: 50dvh;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 300;
+  
+  min-height: 50dvh;
+  min-width: 100dvh;
+  color: #000;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.upload-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.upload-input {
+  display: none;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+
+.inditex-searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  min-width: 100dvh;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inditex-search-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333333;
+}
+
+.inditex-search-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.inditex-search-button:hover {
+  background-color: #333333;
+}
+
+.footer {
+  background-color: #ffffff;
+}

@@ -1,0 +1,76 @@
+/* Estilos del div más grande */
+.assign-section {
+    height: 100dvh; /* Ocupa toda la altura del viewport */
+    width: 100%; /* Ancho completo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start; /* Alineación para scroll */
+  }
+  
+  /* Contenedor del footer */
+  .footer-container {
+    width: 80%;
+    background-color: #ffffff; /* Blanco puro */
+    color: #000000;
+    padding: 30px;
+    align-items: center;
+  }
+  
+  /* Diseño en cuadrícula */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  /* Columnas del footer */
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-column h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #007bff;
+  }
+  
+  /* Estado del sistema con posición absoluta */
+  .footer-status {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .status-indicator {
+    color: #28a745; /* Verde para indicar "normal" */
+    font-size: 16px;
+    margin-right: 5px;
+  }
+  
