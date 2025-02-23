@@ -29,7 +29,7 @@ const Carousel = ({ folderPath, imageCount, children }) => {
         }
         return prevIndex + 1;
       });
-    }, 5000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [items]);
 

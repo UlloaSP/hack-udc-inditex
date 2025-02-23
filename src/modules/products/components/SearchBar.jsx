@@ -18,7 +18,7 @@ const SearchBar = () => {
         perPage: 20,
       })
     );
-    navigate("/products/result");
+    //navigate("/products/result");
   };
 
   return (

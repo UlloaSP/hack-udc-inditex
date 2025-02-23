@@ -130,8 +130,11 @@ console.log(path);
 appFetch(path, config("GET"), onSuccess);
 };
 */
-export const findProducts = () => {
-  return products;
+
+export const findProducts = (params) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(products), 500); // Simula una latencia de red
+  });
 };
 /*
 export const findImages = ({ image, page, perPage }, onSuccess) => {
@@ -143,8 +146,10 @@ export const findImages = ({ image, page, perPage }, onSuccess) => {
 };
 */
 
-export const findImages = () => {
-  return products;
+export const findImages = (params) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(products), 500); // Simula una latencia de red
+  });
 };
 
 export const products = [
