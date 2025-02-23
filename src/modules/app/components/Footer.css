@@ -14,8 +14,7 @@
     background-color: #ffffff; /* Blanco puro */
     color: #000000;
     padding: 30px;
-    border-top: 2px solid #ddd;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
   }
   
   /* Diseño en cuadrícula */
@@ -29,6 +28,7 @@
   .footer-column {
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
   
   .footer-column h3 {

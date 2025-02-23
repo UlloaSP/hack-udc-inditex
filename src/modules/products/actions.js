@@ -6,19 +6,8 @@ const findProductsCompleted = (productsSearch) => ({
   productsSearch,
 });
 
-const clearProductsSearch = () => ({
-  type: actionTypes.CLEAR_PRODUCTS_SEARCH,
-});
-
 export const findProducts = (criteria) => (dispatch) => {
-  dispatch(clearProductsSearch());
   backend.findProducts(criteria, (result) =>
     dispatch(findProductsCompleted({ criteria, result }))
   );
 };
-
-export const previousFindProducts = (criteria) =>
-  findProducts({ ...criteria, page: criteria.page - 1 });
-
-export const nextFindProducts = (criteria) =>
-  findProducts({ ...criteria, page: criteria.page + 1 });

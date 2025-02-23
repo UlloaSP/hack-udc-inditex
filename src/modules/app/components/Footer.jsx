@@ -3,7 +3,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="assign-section">
+    <div className="footer assign-section">
       <div className="footer-container">
         {/* Sección de 4 columnas */}
         <div className="footer-grid">

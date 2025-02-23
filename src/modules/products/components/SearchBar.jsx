@@ -13,7 +13,8 @@ const SearchBar = () => {
     dispatch(
       actions.findProducts({
         query: searchTerm,
-        page: 0,
+        brand: "zara",
+        page: 1,
         perPage: 20,
       })
     );
